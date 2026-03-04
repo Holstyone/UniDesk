@@ -24,19 +24,19 @@ public class TicketsController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult Create(Ticket ticket)
-    {
-        if (!ModelState.IsValid)
-        {
-            return View(ticket);
-        }
+	[HttpPost]
+	public IActionResult Create(Ticket ticket)
+	{
+		if (!ModelState.IsValid)
+		{
+			return View(ticket);
+		}
 
-        _ticketService.Add(ticket);
+		_ticketService.Add(ticket);
 
-        return RedirectToAction(nameof(Index));
-    }
-    public IActionResult Details(int id)
+		return RedirectToAction(nameof(Index));
+	}
+	public IActionResult Details(int id)
     {
         var ticket = _ticketService.GetById(id);
 
