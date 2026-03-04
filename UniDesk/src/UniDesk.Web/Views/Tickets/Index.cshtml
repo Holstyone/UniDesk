@@ -1,5 +1,13 @@
-﻿@page
-@model UniDesk.Web.Views.Tickets.IndexModel
-@{
-	<h1>Lista Zgłoszeń</h1>
-}
+﻿@model IEnumerable<UniDesk.Web.Models.Ticket>
+
+<h1>Tickets</h1>
+<a asp-action="Create" class="btn btn-primary">Create Ticket</a>
+
+<ul>
+    @foreach (var ticket in Model)
+    {
+        <li>
+            @ticket.Id - @ticket.Title - @ticket.Status
+        </li>
+    }
+</ul>
